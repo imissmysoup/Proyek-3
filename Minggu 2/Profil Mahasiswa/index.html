@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Mahasiswa</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <h1>Profil Mahasiswa</h1>
+        <nav>
+            <button id="toggle-tema" type="button" aria-pressed="false">Ganti Tema</button>
+        </nav>
+    </header>
+    
+    <main class="container">
+        <section id="status-container" aria-live="polite">
+            <p id="status-message" data-state="idle">Memulai...</p>
+            <button id="btn-coba-lagi" type="button" class="hidden">Coba Lagi</button>
+        </section>
+
+        <div id="profil-container" class="hidden">
+            <section id="tentang" class="card">
+                <div class="profil-header">
+                    <img id="foto-profil" src="" alt="Foto Profil" width="150" class="avatar">
+                    <div>
+                        <h2 id="nama-profil">Nama Mahasiswa</h2>
+                        <p id="identitas-profil" class="subtitle">NIM - Kelas</p>
+                    </div>
+                </div>
+                
+                <div class="actions">
+                    <button id="toggle-detail" type="button" aria-expanded="false">Lihat Bio Detail</button>
+                </div>
+                <div id="detail-bio" class="hidden">
+                    <p id="teks-bio">Bio akan tampil di sini.</p>
+                </div>
+            </section>
+
+            <section id="keterampilan" class="card">
+                <h2>Keterampilan</h2>
+                
+                <form id="form-keterampilan" class="form-group">
+                    <label for="input-skill">Tambah Keterampilan Baru:</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="input-skill" placeholder="Contoh: Algoritma" aria-invalid="false">
+                        <button id="btn-submit-skill" type="submit">Tambah</button>
+                    </div>
+                    <p id="error-skill" class="error-text" aria-live="polite"></p>
+                </form>
+
+                <ul id="daftar-keterampilan">
+                </ul>
+                <p id="status-keterampilan-kosong" class="hidden">Belum ada keterampilan. Silakan tambahkan!</p>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/app.js" defer></script>
+</body>
+</html>

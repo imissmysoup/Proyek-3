@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <title>Paduan Suara Mahasiswa</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/app.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container nav-wrapper">
+            <a class="brand" href="#">PSM Harmoni</a>
+            
+            <button id="toggle-tema" type="button" aria-pressed="false">Gelap</button>
+            <button id="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">☰ Menu</button>
+            
+            <nav id="main-nav" class="nav-menu hidden">
+                <a href="#hero">Beranda</a>
+                <a href="#kegiatan">Kegiatan</a>
+                <a href="#faq">FAQ</a>
+                <a href="#kontak">Daftar</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero container grid-hero">
+            <div class="hero-content">
+                <h1>Temukan Suaramu Bersama Kami</h1>
+                <p>Bergabunglah dengan Paduan Suara Mahasiswa dan kembangkan teknik vokal serta jiwa kepemimpinanmu dalam harmoni.</p>
+                <a href="#kontak" class="button">Daftar Audisi</a>
+            </div>
+            <div class="hero-image">
+                <!-- Pastikan nama file sesuai dengan yang ada di folder assets -->
+                <img src="assets/PSM.jpeg" alt="Anggota Paduan Suara Mahasiswa berfoto bersama">
+            </div>
+        </section>
+
+        <section id="kegiatan" class="container">
+            <h2>Agenda & Kegiatan</h2>
+            <div class="filter-group">
+                <label for="filter-kegiatan">Filter Kategori:</label>
+                <select id="filter-kegiatan">
+                    <option value="semua">Semua Kegiatan</option>
+                    <option value="latihan">Latihan Rutin</option>
+                    <option value="konser">Konser</option>
+                    <option value="lomba">Lomba</option>
+                </select>
+            </div>
+            <p id="status-kegiatan" role="status" aria-live="polite"></p>
+            <div id="daftar-kegiatan" class="grid">
+                <!-- Kartu akan dirender oleh JavaScript -->
+            </div>
+        </section>
+
+        <section id="faq" class="container">
+            <h2>Pertanyaan Sering Diajukan</h2>
+            <div class="accordion">
+                <div class="faq-item">
+                    <button class="faq-btn" aria-expanded="false">Apakah wajib bisa membaca not balok?</button>
+                    <div class="faq-content hidden"><p>Tidak wajib. Kami menyediakan pelatihan dasar membaca partitur bagi anggota baru.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-btn" aria-expanded="false">Kapan jadwal latihan rutin?</button>
+                    <div class="faq-content hidden"><p>Latihan rutin diadakan setiap hari Selasa dan Kamis sore setelah jam perkuliahan selesai.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-btn" aria-expanded="false">Bagaimana sistem audisinya?</button>
+                    <div class="faq-content hidden"><p>Audisi meliputi tes ambitus (jangkauan nada) dan tes ritme sederhana. Tidak perlu menyiapkan lagu khusus.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="kontak" class="container">
+            <h2>Formulir Pendaftaran</h2>
+            <form id="form-daftar" novalidate>
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap</label>
+                    <input type="text" id="nama" name="nama" required aria-describedby="error-nama">
+                    <small id="error-nama" class="error-text"></small>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Kampus</label>
+                    <input type="email" id="email" name="email" required aria-describedby="error-email">
+                    <small id="error-email" class="error-text"></small>
+                </div>
+                <button type="submit" class="button">Kirim Pendaftaran</button>
+                <p id="pesan-sukses" class="sukses-text hidden">Pendaftaran berhasil! Silakan cek email Anda.</p>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 Paduan Suara Mahasiswa. Hak Cipta Dilindungi.</p>
+            <button id="back-to-top" type="button">↑ Kembali ke Atas</button>
+        </div>
+    </footer>
+</body>
+</html>

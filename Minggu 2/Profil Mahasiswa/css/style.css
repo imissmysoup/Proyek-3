@@ -1,0 +1,112 @@
+:root {
+    --bg-color: #f3f4f6;
+    --text-color: #1f2937;
+    --card-bg: #ffffff;
+    --border-color: #d1d5db;
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --danger: #dc2626;
+    --success: #16a34a;
+}
+body.dark-mode {
+    --bg-color: #111827;
+    --text-color: #f9fafb;
+    --card-bg: #1f2937;
+    --border-color: #374151;
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 5%;
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+}
+.container {
+    width: min(90%, 600px);
+    margin: 32px auto;
+}
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+.profil-header {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.avatar {
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--border-color);
+}
+.subtitle {
+    color: #6b7280;
+    font-weight: bold;
+}
+body.dark-mode .subtitle { color: #9ca3af; }
+
+button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--primary);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+button:hover:not(:disabled) { background-color: var(--primary-hover); }
+button:disabled { opacity: 0.6; cursor: wait; }
+button.btn-hapus {
+    background-color: transparent;
+    color: var(--danger);
+    padding: 4px 8px;
+    margin-left: auto;
+}
+button.btn-hapus:hover { background-color: #fee2e2; }
+
+.hidden { display: none !important; }
+
+#status-message {
+    padding: 12px;
+    border-left: 4px solid var(--border-color);
+    background: var(--card-bg);
+    margin-bottom: 16px;
+}
+#status-message[data-state="loading"] { border-color: #d97706; }
+#status-message[data-state="error"] { border-color: var(--danger); }
+#status-message[data-state="empty"] { border-color: var(--primary); }
+
+.form-group { margin-bottom: 24px; }
+.input-wrapper { display: flex; gap: 8px; margin-top: 8px; }
+input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+input[aria-invalid="true"] { border-color: var(--danger); }
+.error-text { color: var(--danger); font-size: 0.875rem; margin-top: 4px; }
+
+ul { list-style: none; padding: 0; }
+li {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    margin-bottom: 8px;
+}

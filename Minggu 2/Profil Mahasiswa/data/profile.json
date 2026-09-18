@@ -1,0 +1,12 @@
+{
+    "nama": "Ahmad Aisy Fathryan Siswandar",
+    "identitas": "251511033 - 2B D3 Teknik Informatika",
+    "bio": "Mahasiswa asal Cimahi yang aktif berorganisasi di HIMAKOM dan Paduan Suara Mahasiswa (PSM). Berfokus pada pengembangan logika pemrograman C/C++, struktur data, serta eksplorasi sistem berbasis Linux.",
+    "foto": "assets/profile.png",
+    "keterampilan": [
+        "C/C++ & Data Structures",
+        "Linux Command Line",
+        "HTML, CSS & JavaScript",
+        "Choral Leadership"
+    ]
+}
