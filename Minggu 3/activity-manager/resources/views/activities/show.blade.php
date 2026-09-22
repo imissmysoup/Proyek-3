@@ -7,5 +7,12 @@
     <p>Status: {{ $activity->status }}</p>
     <p>Deskripsi: {{ $activity->description ?? 'Tidak ada deskripsi' }}</p>
     
-    <a href="{{ route('activities.index') }}">Kembali ke Daftar</a>
+    <a href="{{ route('activities.edit', $activity) }}">Edit</a>
+
+    <form action="{{ route('activities.destroy', $activity) }}" method="POST" style="display:inline;">
+        @csrf
+        @method('DELETE')
+        <button type="submit" onclick="return confirm('Yakin ingin menghapus?')">Hapus</button>
+    </form>
+    <br><br>
 @endsection

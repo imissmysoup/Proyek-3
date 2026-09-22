@@ -6,7 +6,7 @@
     @forelse ($activities as $activity)
         <article class="card">
             <h2>
-                <a href="{{ route('activities.show', $activity) }}">
+                <a href="{{ route('activities.create') }}">Tambah Kegiatan</a>
                     {{ $activity->title }}
                 </a>
             </h2>
