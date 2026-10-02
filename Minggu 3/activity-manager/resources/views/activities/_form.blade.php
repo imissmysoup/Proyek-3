@@ -1,4 +1,10 @@
 <div style="margin-bottom: 1rem;">
+    <label for="code">Kode Kegiatan</label><br>
+    <input type="text" id="code" name="code" value="{{ old('code', $activity->code ?? '') }}">
+    @error('code') <p style="color: red;">{{ $message }}</p> @enderror
+</div>
+
+<div style="margin-bottom: 1rem;">
     <label for="title">Judul</label><br>
     <input type="text" id="title" name="title" value="{{ old('title', $activity->title ?? '') }}">
     @error('title') <p style="color: red;">{{ $message }}</p> @enderror
@@ -17,9 +23,16 @@
 </div>
 
 <div style="margin-bottom: 1rem;">
-    <label for="category">Kategori</label><br>
-    <input type="text" id="category" name="category" value="{{ old('category', $activity->category ?? '') }}">
-    @error('category') <p style="color: red;">{{ $message }}</p> @enderror
+    <label for="category_id">Kategori</label><br>
+    <select name="category_id" id="category_id">
+        <option value="">-- Pilih Kategori --</option>
+        @foreach($categories as $category)
+            <option value="{{ $category->id }}" @selected(old('category_id', $activity->category_id ?? '') == $category->id)>
+                {{ $category->name }}
+            </option>
+        @endforeach
+    </select>
+    @error('category_id') <p style="color: red;">{{ $message }}</p> @enderror
 </div>
 
 <div style="margin-bottom: 1rem;">
