@@ -89,4 +89,18 @@ class ActivityController extends Controller
         return to_route('activities.index')
             ->with('success', 'Kegiatan dihapus.');
     }
+
+    public function trash(): View
+    {
+        $activities = Activity::onlyTrashed()->with('category')->get();
+        return view('activities.trash', compact('activities'));
+    }
+
+    public function restore($id): RedirectResponse
+    {
+        $activity = Activity::onlyTrashed()->findOrFail($id);
+        $activity->restore();
+
+        return redirect()->route('activities.index')->with('success', 'Kegiatan berhasil dipulihkan.');
+    }
 }
