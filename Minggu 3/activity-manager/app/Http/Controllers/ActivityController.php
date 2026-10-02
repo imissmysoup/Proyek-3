@@ -5,6 +5,7 @@ use App\Models\Activity;
 use App\Models\Category;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreActivityRequest;
 use App\Http\Requests\UpdateActivityRequest;
 use App\Services\ActivityService;
@@ -12,13 +13,36 @@ use DomainException;
 
 class ActivityController extends Controller
 {
-    public function index(): View
+    public function index(Request $request): View
     {
-        $activities = Activity::query()
-            ->orderBy('activity_date')
-            ->get();
-            
-        return view('activities.index', compact('activities'));
+        $query = Activity::query()->with('category');
+
+        if ($request->filled('search')) {
+            $query->where(function ($q) use ($request) {
+                $q->where('title', 'like', '%' . $request->search . '%')
+                  ->orWhere('code', 'like', '%' . $request->search . '%');
+            });
+        }
+
+        if ($request->filled('category_id')) {
+            $query->where('category_id', $request->category_id);
+        }
+
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
+        }
+
+        if ($request->filled('sort')) {
+            $direction = $request->sort === 'terlama' ? 'asc' : 'desc';
+            $query->orderBy('activity_date', $direction);
+        } else {
+            $query->latest('activity_date'); // Default: terbaru
+        }
+
+        $activities = $query->paginate(10)->withQueryString();
+        $categories = Category::all(); // Untuk opsi dropdown filter
+
+        return view('activities.index', compact('activities', 'categories'));
     }
 
     public function create(): View
